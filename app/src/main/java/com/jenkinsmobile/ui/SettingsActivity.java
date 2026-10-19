@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void save(){
         prefs.saveUrl(edtUrl.getText().toString().trim());
         prefs.saveAuth(edtUser.getText().toString().trim(), edtToken.getText().toString().trim());
-        ApiClient.get(this).updateCredentials(this);
+        ApiClient.updateCredentials(this);
         Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
         finish();
     }

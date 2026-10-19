@@ -30,3 +30,25 @@ An Android (Java) client for Jenkins covering its core REST API features.
 ## Build
 Open in Android Studio (Hedgehog+), then Run. Or:
   ./gradlew assembleDebug
+
+## CI / Release pipeline
+GitHub Actions workflow at `.github/workflows/android.yml` builds a release APK.
+
+Triggers:
+- push to `main`
+- pull request to `main`
+- tag push `v*` (creates a GitHub Release with the APK attached)
+- manual `workflow_dispatch`
+
+The workflow uses JDK 17 + Gradle 8.5, runs `gradle assembleRelease`, uploads the APK as a build artifact (retained 30 days), and publishes a GitHub Release when a `v*` tag is pushed.
+
+### Release signing (optional)
+If no signing secrets are set, CI builds an **unsigned** release APK. To sign releases, add these repository secrets:
+
+- `KEYSTORE_BASE64` - base64 of your `release.keystore`
+  (`base64 -w0 release.keystore` on Linux/macOS)
+- `KEYSTORE_PASSWORD`
+- `KEY_ALIAS`
+- `KEY_PASSWORD`
+
+`app/build.gradle` reads these as env vars and signs only when present. Keep the keystore file out of git (it is in `.gitignore`).

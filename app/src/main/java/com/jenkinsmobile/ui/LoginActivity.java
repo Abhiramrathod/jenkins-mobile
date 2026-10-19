@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         if(!url.startsWith("http")){ url="http://"+url; }
         prefs.saveUrl(url);
         prefs.saveAuth(user, token);
-        ApiClient.get(this).updateCredentials(this);
+        ApiClient.updateCredentials(this);
         progress.setVisibility(View.VISIBLE);
         btnLogin.setEnabled(false);
         ApiClient.get(this).api().testConnection().enqueue(new Callback<ResponseBody>() {
