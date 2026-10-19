@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Jenkins Mobile</string>
+    <string name="jenkins_url">Jenkins URL (e.g. https://jenkins.example.com/)</string>
+    <string name="username">Username</string>
+    <string name="api_token">API Token / Password</string>
+    <string name="login">Login</string>
+    <string name="settings">Settings</string>
+    <string name="jobs">Jobs</string>
+    <string name="queue">Queue</string>
+    <string name="nodes">Nodes</string>
+    <string name="refresh">Refresh</string>
+    <string name="build">Build</string>
+    <string name="build_with_params">Build With Parameters</string>
+    <string name="view_log">View Log</string>
+</resources>

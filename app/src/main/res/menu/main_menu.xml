@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_queue" android:title="@string/queue" app:showAsAction="never"/>
+    <item android:id="@+id/menu_nodes" android:title="@string/nodes" app:showAsAction="never"/>
+    <item android:id="@+id/menu_settings" android:title="@string/settings" app:showAsAction="never"/>
+</menu>
