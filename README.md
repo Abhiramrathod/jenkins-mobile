@@ -43,7 +43,7 @@ Triggers:
 The workflow uses JDK 17 + Gradle 8.5, runs `gradle assembleRelease`, uploads the APK as a build artifact (retained 30 days), and publishes a GitHub Release when a `v*` tag is pushed.
 
 ### Release signing (optional)
-If no signing secrets are set, CI builds an **unsigned** release APK. To sign releases, add these repository secrets:
+If no signing secrets are set, CI signs the release APK with the **debug keystore** so it installs directly on devices (fine for testing; use a real keystore for Play Store). To sign releases with your own key, add these repository secrets:
 
 - `KEYSTORE_BASE64` - base64 of your `release.keystore`
   (`base64 -w0 release.keystore` on Linux/macOS)
